@@ -1,0 +1,182 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@config 'tailwind.config.js';
+
+[x-cloak] {
+    display: none !important;
+}
+
+.grid-image .filepond--item {
+    width: calc(33.3% - 0.5em);
+}
+
+/* Evently admin canvas */
+body.fi-body {
+    background-color: #f6f7fb;
+}
+
+.dark body.fi-body {
+    background-color: #080b14;
+}
+
+.fi-topbar > nav {
+    border-bottom: 1px solid rgb(15 23 42 / 0.06);
+    background-color: rgb(255 255 255 / 0.86);
+    box-shadow: none;
+    backdrop-filter: blur(18px);
+}
+
+.dark .fi-topbar > nav {
+    border-bottom-color: rgb(255 255 255 / 0.08);
+    background-color: rgb(15 23 42 / 0.86);
+    --tw-ring-color: rgb(255 255 255 / 0.06);
+}
+
+.fi-sidebar-header {
+    border-bottom: 1px solid rgb(15 23 42 / 0.05);
+    box-shadow: none;
+}
+
+.dark .fi-sidebar-header {
+    border-bottom-color: rgb(255 255 255 / 0.08);
+}
+
+.fi-sidebar-group-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.fi-sidebar-item.fi-active .fi-sidebar-item-button {
+    background-color: #eef2ff;
+}
+
+.dark .fi-sidebar-item.fi-active .fi-sidebar-item-button {
+    background-color: rgb(99 102 241 / 0.18);
+}
+
+.fi-sidebar-item.fi-active .fi-sidebar-item-label {
+    color: #4338ca;
+    font-weight: 600;
+}
+
+.dark .fi-sidebar-item.fi-active .fi-sidebar-item-label {
+    color: #c7d2fe;
+}
+
+.fi-page-header-heading-title {
+    font-weight: 650;
+    letter-spacing: -0.03em;
+}
+
+.fi-section,
+.fi-ta-ctn,
+.fi-wi-stats-overview-stat {
+    border-radius: 1rem;
+}
+
+.fi-ta-ctn,
+.fi-wi-stats-overview-stat {
+    box-shadow:
+        0 1px 2px rgb(15 23 42 / 0.03),
+        0 18px 40px -30px rgb(15 23 42 / 0.22);
+}
+
+.fi-btn,
+.fi-input-wrp,
+.fi-badge {
+    border-radius: 0.7rem;
+}
+
+.fi-wi-stats-overview-stat {
+    padding: 1.35rem 1.5rem;
+}
+
+.fi-wi-stats-overview-stat-value {
+    letter-spacing: -0.04em;
+}
+
+.fi-dashboard-page .fi-wi-table .fi-ta-ctn {
+    box-shadow: none;
+}
+
+/* Auth panel */
+.evently-auth-panel {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem;
+    color: #fff;
+    background-color: #0b1026;
+    background-position: center;
+    background-size: cover;
+}
+
+.evently-auth-panel::before {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background:
+        linear-gradient(135deg, rgb(7 10 26 / 0.92) 0%, rgb(30 27 75 / 0.72) 48%, rgb(76 29 149 / 0.52) 100%),
+        radial-gradient(circle at 20% 20%, rgb(99 102 241 / 0.35), transparent 45%);
+}
+
+.evently-auth-panel > * {
+    position: relative;
+    z-index: 1;
+}
+
+.evently-auth-panel .evently-auth-kicker {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #c7d2fe;
+}
+
+.evently-auth-panel .evently-auth-title {
+    max-width: 34rem;
+    margin-top: 1rem;
+    font-size: clamp(2.4rem, 4.2vw, 4rem);
+    font-weight: 650;
+    line-height: 1.03;
+    letter-spacing: -0.045em;
+}
+
+.evently-auth-panel .evently-auth-copy {
+    max-width: 30rem;
+    margin-top: 1.4rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgb(226 232 240 / 0.72);
+}
+
+.evently-auth-panel .evently-auth-points {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 2.5rem;
+    font-size: 0.9rem;
+    color: rgb(226 232 240 / 0.82);
+}
+
+.evently-auth-panel .evently-auth-point {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.evently-auth-panel .evently-auth-point span {
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: rgb(99 102 241 / 0.35);
+    color: #e0e7ff;
+    font-size: 0.7rem;
+    font-weight: 700;
+}

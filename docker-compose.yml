@@ -1,0 +1,68 @@
+name: evently
+
+services:
+  php:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    image: evently-php:latest
+    container_name: evently_php
+    working_dir: /var/www/html
+    environment:
+      PROJECT_NAME: evently
+      XDEBUG: "false"
+    volumes:
+      - ./src:/var/www/html
+      - ./php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - evently
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: evently_nginx
+    ports:
+      - "127.0.0.1:8084:80"
+      - "127.0.0.1:8445:443"
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - php
+    networks:
+      - evently
+    restart: unless-stopped
+
+  db:
+    image: mariadb:10.11
+    container_name: evently_db
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: evently
+      MARIADB_USER: evently
+      MARIADB_PASSWORD: evently_secret
+      MARIADB_ROOT_PASSWORD: evently_root_secret
+      TZ: Asia/Jakarta
+    ports:
+      - "127.0.0.1:13309:3306"
+    volumes:
+      - ./db/data:/var/lib/mysql
+      - ./db/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mariadb-admin ping -h 127.0.0.1 -u root -p$$MARIADB_ROOT_PASSWORD --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    networks:
+      - evently
+
+networks:
+  evently:
+    name: evently_network
+    driver: bridge

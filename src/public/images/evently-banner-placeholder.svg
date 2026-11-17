@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" fill="none">
+  <defs>
+    <linearGradient id="placeholderBg" x1="0" y1="0" x2="640" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF2FF"/>
+      <stop offset="1" stop-color="#F5F3FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#placeholderBg)"/>
+  <circle cx="535" cy="70" r="120" fill="#E0E7FF"/>
+  <circle cx="90" cy="315" r="150" fill="#EDE9FE"/>
+  <rect x="276" y="142" width="88" height="88" rx="24" fill="#4F46E5"/>
+  <path d="M306 166V206M306 166H332M306 186H327M306 206H332" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="320" y="272" text-anchor="middle" fill="#6366F1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="600" letter-spacing="0.04em">EVENTLY</text>
+</svg>

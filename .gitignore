@@ -1,0 +1,29 @@
+.github-token
+.github-user
+.docker_cleanup_done
+
+# Evently local runtime
+/.env
+/db/data/
+/nginx/ssl/
+/src/vendor/
+/src/node_modules/
+/src/.env
+/src/public/storage
+/src/public/hot
+/src/storage/*.key
+
+# Boilerplate / unrelated local files
+/.github/
+/Catatan.md
+/delete-repo.sh
+/docker-cleanup.sh
+/ptt/
+/start.sh
+/start_mac.sh
+/start_old.sh
+/template/
+
+# OS junk
+.DS_Store
+Thumbs.db
